@@ -5,13 +5,15 @@ require 'tesults/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "tesults"
-  spec.version       = "1.0.1"
+  spec.version       = "1.1.0"
   spec.authors       = ["Tesults"]
   spec.email         = ["support@tesults.com"]
 
   spec.summary       = "Tesults API library."
-  spec.description   = "Tesults is a test automation results reporting service. This API library makes it easier to upload your test results from your Ruby application."
+  spec.description   = "Tesults API library for uploading test results to Tesults in your Ruby application."
   spec.homepage      = "https://www.tesults.com"
   spec.files         = ["lib/tesults.rb"]
+  spec.add_development_dependency 'aws-sdk'
+  spec.add_runtime_dependency 'aws-sdk'
   spec.license       = "MIT"
 end
