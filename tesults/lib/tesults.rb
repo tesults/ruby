@@ -1,7 +1,7 @@
 require 'json'
 require 'uri'
 require 'net/https'
-require 'aws-sdk'
+require 'aws-sdk-s3'
 
 class Tesults
     @@expire_buffer = 30 # 30 seconds
@@ -10,7 +10,7 @@ class Tesults
     @@uploading = []
     @@warnings = []
 
-    def self.create_s3_cilent(credentials)
+    def self.create_s3_client(credentials)
         s3_client = Aws::S3::Client.new(
             region: 'us-east-1',
             access_key_id: credentials['AccessKeyId'],
@@ -50,7 +50,7 @@ class Tesults
 
     def self.transfer(file, bytes, key, auth)
         Thread.new {
-            s3 = create_s3_cilent(auth)
+            s3 = create_s3_client(auth)
             increment = 1
             bytes_increment = bytes
             begin
