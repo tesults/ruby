@@ -1,7 +1,7 @@
 require 'json'
 require 'uri'
 require 'net/https'
-require 'aws-sdk'
+require 'aws-sdk-s3'
 
 class Tesults
     @@expire_buffer = 30 # 30 seconds
